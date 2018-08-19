@@ -78,8 +78,7 @@ echo DEVICE_NAME=$1 >> .tmp-config
 case "$1" in
 
 "onyx")
-	echo DEVICE=sp6821a_gonk >> .tmp-config &&
-	echo PRODUCT_NAME=sp6821a_gonk >> .tmp-config &&
+	echo DEVICE=onyx >> .tmp-config &&
 	repo_sync $1
 	;;
 
