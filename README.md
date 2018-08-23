@@ -19,9 +19,6 @@ and talk to us on IRC:
 
   #B2G on irc.mozilla.org
 
-or Telegram:
-
-  https://telegram.me/B2GOS
 
 Discuss with Developers:
 
