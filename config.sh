@@ -1,7 +1,7 @@
 #!/bin/bash
 
 REPO=${REPO:-./repo}
-REPO_INIT_FLAGS="--repo-url=git://codeaurora.org/tools/repo.git --repo-branch=caf-stable"
+#REPO_INIT_FLAGS="--repo-url=git://codeaurora.org/tools/repo.git --repo-branch=caf-stable"
 sync_flags="-j8"
 
 repo_sync() {
