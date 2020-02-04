@@ -2,6 +2,8 @@
 
 REPO=${REPO:-./repo}
 #REPO_INIT_FLAGS="--repo-url=git://codeaurora.org/tools/repo.git --repo-branch=caf-stable"
+REPO_INIT_FLAGS="--depth=1"
+REPO_SYNC_FLAGS="-c --no-clone-bundle --no-tags"
 sync_flags="-j8"
 
 repo_sync() {
