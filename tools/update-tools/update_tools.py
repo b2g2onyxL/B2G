@@ -441,54 +441,54 @@ class FotaMarBuilder(object):
         shutil.rmtree(self.stage_dir)
 
     def build_mar(self, signed_zip, output_mar):
-        with FotaZip(signed_zip) as fota_zip:
-            fota_zip.validate(signed=True)
+       # with FotaZip(signed_zip) as fota_zip:
+       #     fota_zip.validate(signed=True)
 
-        mar_tool = MarTool()
-        make_full_update = os.path.join(b2g_config.gecko_path, "tools",
-            "update-packaging", "make_full_update.sh")
-        if not os.path.exists(make_full_update):
-            raise UpdateException("Couldn't find %s " % make_full_update)
+      #  mar_tool = MarTool()
+       # make_full_update = os.path.join(b2g_config.gecko_path, "tools",
+       #     "update-packaging", "make_full_update.sh")
+       # if not os.path.exists(make_full_update):
+       #     raise UpdateException("Couldn't find %s " % make_full_update)
 
-        mar_dir = os.path.join(self.stage_dir, "mar")
-        os.mkdir(mar_dir)
+      #  mar_dir = os.path.join(self.stage_dir, "mar")
+      #  os.mkdir(mar_dir)
 
         # Inside the FOTA MAR, the update needs to be called "update.zip"
-        shutil.copy(signed_zip, os.path.join(mar_dir, "update.zip"))
+     #   shutil.copy(signed_zip, os.path.join(mar_dir, "update.zip"))
 
-        precomplete = os.path.join(mar_dir, "precomplete")
-        open(precomplete, "w").write("")
+     #   precomplete = os.path.join(mar_dir, "precomplete")
+     #   open(precomplete, "w").write("")
 
-        run_command([make_full_update, output_mar, mar_dir],
-            env={"MAR": mar_tool.get_tool()})
+     #   run_command([make_full_update, output_mar, mar_dir],
+    #        env={"MAR": mar_tool.get_tool()})
 
 class GeckoMarBuilder(object):
     def __init__(self):
-        self.mar_tool = MarTool()
-        self.mbsdiff_tool = Tool(b2g_config.get_gecko_host_bin("mbsdiff"))
-        packaging_dir = os.path.join(b2g_config.gecko_path, "tools",
-            "update-packaging")
+  #      self.mar_tool = MarTool()
+  #      self.mbsdiff_tool = Tool(b2g_config.get_gecko_host_bin("mbsdiff"))
+  #      packaging_dir = os.path.join(b2g_config.gecko_path, "tools",
+  #          "update-packaging")
 
-        self.make_full_update = os.path.join(packaging_dir,
-            "make_full_update.sh")
-        if not os.path.exists(self.make_full_update):
-            raise UpdateException("Couldn't find %s " % self.make_full_update)
+  #      self.make_full_update = os.path.join(packaging_dir,
+  #          "make_full_update.sh")
+  #      if not os.path.exists(self.make_full_update):
+  #          raise UpdateException("Couldn't find %s " % self.make_full_update)
 
-        self.make_incremental_update = os.path.join(packaging_dir,
-            "make_incremental_update.sh")
-        if not os.path.exists(self.make_incremental_update):
-            raise UpdateException("Couldn't find %s " % self.make_incremental_update)
+  #      self.make_incremental_update = os.path.join(packaging_dir,
+  #          "make_incremental_update.sh")
+  #      if not os.path.exists(self.make_incremental_update):
+  #          raise UpdateException("Couldn't find %s " % self.make_incremental_update)
 
     def build_gecko_mar(self, src_dir, output_mar, from_dir=None):
-        if from_dir:
-            args = [self.make_incremental_update, output_mar, from_dir, src_dir]
-        else:
-            args = [self.make_full_update, output_mar, src_dir]
+   #     if from_dir:
+   #         args = [self.make_incremental_update, output_mar, from_dir, src_dir]
+   #     else:
+   #         args = [self.make_full_update, output_mar, src_dir]
 
-        run_command(args, env={
-            "MAR": self.mar_tool.get_tool(),
-            "MBSDIFF": self.mbsdiff_tool.get_tool()
-        })
+    #    run_command(args, env={
+    #        "MAR": self.mar_tool.get_tool(),
+    #        "MBSDIFF": self.mbsdiff_tool.get_tool()
+    #    })
 
 class UpdateXmlBuilder(object):
     DEFAULT_URL_TEMPLATE = "http://localhost/%(filename)s"
