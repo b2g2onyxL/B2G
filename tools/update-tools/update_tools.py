@@ -441,13 +441,14 @@ class FotaMarBuilder(object):
         shutil.rmtree(self.stage_dir)
 
     def build_mar(self, signed_zip, output_mar):
+		pass
 
 
 class GeckoMarBuilder(object):
     def __init__(self):
-
+        pass
     def build_gecko_mar(self, src_dir, output_mar, from_dir=None):
-
+        pass
 
 class UpdateXmlBuilder(object):
     DEFAULT_URL_TEMPLATE = "http://localhost/%(filename)s"
