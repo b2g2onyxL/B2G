@@ -83,6 +83,12 @@ case "$1" in
 	echo DEVICE=onyx >> .tmp-config &&
 	repo_sync $1
 	;;
+	
+
+"onyx_v2-6")
+	echo DEVICE=onyx >> .tmp-config &&
+	repo_sync $1
+	;;
 
 
 *)
