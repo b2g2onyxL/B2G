@@ -85,6 +85,10 @@ case "$1" in
 	;;
 	
 
+"nexus-5")
+	echo DEVICE=onyx >> .tmp-config &&
+	repo_sync $1
+	;;
 
 *)
 	echo "Usage: $0 [-cdflnq] [-j <jobs>] [--force-sync] (device name)"
