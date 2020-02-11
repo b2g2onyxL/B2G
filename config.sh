@@ -34,7 +34,7 @@ case `uname` in
 esac
 
 GITREPO=${GITREPO:-"https://github.com/b2g2onyxL/b2g-manifest"}
-BRANCH=${BRANCH:-b2g/cm-12.1}
+BRANCH=${BRANCH:-v2.6}
 
 while [ $# -ge 1 ]; do
 	case $1 in
@@ -79,16 +79,11 @@ echo DEVICE_NAME=$1 >> .tmp-config
 
 case "$1" in
 
-"onyx")
+"onyx-l")
 	echo DEVICE=onyx >> .tmp-config &&
 	repo_sync $1
 	;;
 	
-
-"onyx_v2-6")
-	echo DEVICE=onyx >> .tmp-config &&
-	repo_sync $1
-	;;
 
 
 *)
